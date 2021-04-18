@@ -19,9 +19,14 @@ def index(request):
 def about(request):
     # get the realtor for the database
     realtors = Realtor.objects.order_by('-hire_data')[:3]
+
+    # get the seller of the month
+    mvp_realtors = Realtor.objects.filter(is_mvp=True)
+
     # pass them to the context
     context = {
-        'realtors': realtors
+        'realtors': realtors,
+        'mvp_realtors' : mvp_realtors
     }
     #  reder static html 
     return render(request, 'pages/about.html' , context)
