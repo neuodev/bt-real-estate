@@ -23,7 +23,7 @@ def listing(req ,listing_id):
         'listing': single_listing
     }
     # render the page 
-    return render(req, 'listings/listing.html')
+    return render(req, 'listings/listing.html' , context)
 
 def search(req):
     return render(req, 'listings/search.html')
