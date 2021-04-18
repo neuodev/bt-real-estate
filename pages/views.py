@@ -5,9 +5,11 @@ from listings.models import Listing
 
 def index(request):
     # get the latest Listings
-    listings = Listing.objects.order_by('-list_date')[:3]
+    listings = Listing.objects.order_by('-list_date').filter(is_published=True)[:3]
+
     # pass it to the context 
     context = {'listings':listings}
+    
     # pass the contect to teh render 
     return render(request,'pages/index.html' , context)
    
