@@ -33,7 +33,7 @@ def search(req):
     context = {
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
-        'state_choices' : state_choices
+        'state_choices' : state_choices,
         'listings': query_listings
     }
     return render(req, 'listings/search.html' , context)
