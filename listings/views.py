@@ -2,6 +2,8 @@ from django.shortcuts import render , get_object_or_404
 from django.core.paginator import Paginator , EmptyPage, PageNotAnInteger
 from .models import Listing
 
+from .choices import bedroom_choices,price_choices,state_choices
+
 def index(req):
     # get the listing from the database 
    listings = Listing.objects.order_by('-list_date').filter(is_published=True)
@@ -27,4 +29,10 @@ def listing(req ,listing_id):
     return render(req, 'listings/listing.html' , context)
 
 def search(req):
-    return render(req, 'listings/search.html')
+    
+    context = {
+        'bedroom_choices': bedroom_choices,
+        'price_choices': price_choices,
+        'state_choices' : state_choices
+    }
+    return render(req, 'listings/search.html' , context)
