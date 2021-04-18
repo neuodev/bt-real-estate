@@ -29,10 +29,11 @@ def listing(req ,listing_id):
     return render(req, 'listings/listing.html' , context)
 
 def search(req):
-    
+    query_listings = Listing.objects.order_by('-list_date')
     context = {
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
         'state_choices' : state_choices
+        'listings': query_listings
     }
     return render(req, 'listings/search.html' , context)
