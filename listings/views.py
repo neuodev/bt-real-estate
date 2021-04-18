@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from .models import Listing
+
 def index(req):
    return render(req, 'listings/listings.html')
 
