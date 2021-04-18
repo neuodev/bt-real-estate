@@ -29,7 +29,13 @@ def listing(req ,listing_id):
     return render(req, 'listings/listing.html' , context)
 
 def search(req):
+    # get all listings
     query_listings = Listing.objects.order_by('-list_date')
+    if 'keywords' in req.GET['keywords']:
+        keywords = req.GET['keywords']
+        if keywords:
+            query_listings.filter(description__icontains=keywords)
+
     context = {
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
