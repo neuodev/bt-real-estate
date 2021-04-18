@@ -3,10 +3,13 @@ from django.core.paginator import Paginator , EmptyPage, PageNotAnInteger
 from .models import Listing
 
 def index(req):
-   listings = Listing.objects.all()
+    # get the listing from the database 
+   listings = Listing.objects.order_by('-list_date').filter(is_published=True)
+    #    add pagination 
    paginator = Paginator(listings , 3)
    page = req.GET.get('page')
    paged_listings = paginator.get_page(page)
+    #    pass the pagination for the listing
    context = {
        'listings' : paged_listings
    }
