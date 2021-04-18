@@ -1,0 +1,44 @@
+MODEL/DB FIELDS 
+
+### LISTING 
+id: INT 
+realtor: INT (FOREIGN KEY [realror])
+title: STR
+city
+state
+zipcode
+description
+price: INT
+BEDROOMbedrooms: 
+bathrooms
+garage
+list_data
+lot_size
+sqft
+photo_main: STR
+photo__1: STR
+photo__2: STR
+photo__3: STR
+photo__4: STR
+photo__5: STR
+photo__6: STR
+is_pbulished: bool 
+### REALTOR 
+ID
+NAME:
+PHOTO:
+DESCRIPTION:
+EMAIL:
+PHONE:
+IS_MVP:
+
+### CONTACT 
+id 
+user_id: INT 
+listing
+listing_id:
+name: 
+email
+phone
+message
+contact_date
