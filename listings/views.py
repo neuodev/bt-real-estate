@@ -60,6 +60,7 @@ def search(req):
         'bedroom_choices': bedroom_choices,
         'price_choices': price_choices,
         'state_choices' : state_choices,
-        'listings': query_listings
+        'listings': query_listings ,
+        'values': req.GET
     }
     return render(req, 'listings/search.html' , context)
