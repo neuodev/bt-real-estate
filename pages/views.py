@@ -18,7 +18,7 @@ def index(request):
 
 def about(request):
     # get the realtor for the database
-    realtors = Realtor.objects.all()[:3]
+    realtors = Realtor.objects.order_by('-hire_data')[:3]
     # pass them to the context
     context = {
         'realtors': realtors
