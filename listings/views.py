@@ -16,6 +16,13 @@ def index(req):
    return render(req, 'listings/listings.html' , context)
 
 def listing(req ,listing_id):
+    # get listing by id 
+    single_listing = Listing.objects.get(id=listing_id)
+    # pass it to the context 
+    context = {
+        'listing': single_listing
+    }
+    # render the page 
     return render(req, 'listings/listing.html')
 
 def search(req):
