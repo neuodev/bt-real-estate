@@ -18,7 +18,7 @@ def index(request):
 
 def about(request):
     # get the realtor for the database
-    realtors = Realtor.objects.order_by('-hire_data')[:3]
+    realtors = Realtor.objects.order_by('-hire_date')[:3]
 
     # get the seller of the month
     mvp_realtors = Realtor.objects.filter(is_mvp=True)
